@@ -1,0 +1,19 @@
+a=imread("img1.jpg");
+b=rgb2gray(a);
+m1=(1/4)*ones(2,2);
+m2=(1/9)*ones(3,3);
+m3=(1/16)*ones(4,4);
+m4=(1/25)*ones(5,5);
+m5=(1/36)*ones(6,6);
+h1=conv2(b,m1,'same');
+h2=conv2(b,m2,'same');
+h3=conv2(b,m3,'same');
+h4=conv2(b,m4,'same');
+h5=conv2(b,m5,'same');
+subplot(2,3,1),imshow(b),title('Orginal');
+subplot(2,3,2),imshow(uint8(h1)),title("Conv 2x2");
+subplot(2,3,3),imshow(uint8(h2)),title("Conv 3x3");
+subplot(2,3,4),imshow(uint8(h3)),title("Conv 4x4");
+subplot(2,3,5),imshow(uint8(h4)),title("Conv 5x5");
+subplot(2,3,6),imshow(uint8(h5)),title("Conv 6x6");
+ 
