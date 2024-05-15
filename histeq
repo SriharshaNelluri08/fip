@@ -1,0 +1,7 @@
+a=imread('nam.jpg');
+b=rgb2gray(a);
+d=histeq(b);
+subplot(2,2,1), imshow(b),title('Original Image');
+subplot(2,2,2), imhist(b),title('Orig Histogram');
+subplot(2,2,3), imshow(d),title('Hist equalization');
+subplot(2,2,4), imhist(d),title('hist of hist eq');
