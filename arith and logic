@@ -1,0 +1,37 @@
+image1 = imread('img1.jpg');
+image2 = imread('img2.jpg');
+
+% Addition
+result_addition = image1 + image2;
+
+% Subtraction
+result_subtraction = image1 - image2;
+
+% Multiplication
+result_multiplication = image1 .* image2;
+
+% Division
+result_division = image1 ./ image2;
+
+% Logical AND
+result_and = bitand(image1,image2);
+
+% Logical OR
+result_or = bitor(image1,image2);
+
+% Logical NOT
+result_not_image1 = imcomplement(image1);
+
+% Logical XOR
+result_xor = bitxor(image1, image2);
+
+% Display results
+figure;
+subplot(4, 2, 1); imshow(result_addition); title('Addition');
+subplot(4, 2, 2); imshow(result_subtraction); title('Subtraction');
+subplot(4, 2, 3); imshow(result_multiplication); title('Multiplication');
+subplot(4, 2, 4); imshow(result_division); title('Division');
+subplot(4, 2, 5); imshow(result_and); title('Logical AND');
+subplot(4, 2, 6); imshow(result_or); title('Logical OR');
+subplot(4, 2, 7); imshow(result_not_image1); title('Negative'); 
+subplot(4, 2, 8); imshow(result_xor); title('Logical XOR');
