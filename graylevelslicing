@@ -1,0 +1,39 @@
+%without background
+x=imread('img1.jpg');
+y=rgb2gray(x);
+y=imresize(y,[256,256]);
+l=double(y);
+[m,n]=size(l);
+H=double(255);
+u=double(round(H/2.25));
+v=double(round(2*H/2));
+for i=1:m
+    for j=1:n
+        if l(i,j)>=u & l(i,j)<=v
+            E(i,j)=H;
+        else
+            E(i,j)=0;    
+        end
+    end
+end
+%with background
+a=imread('img1.jpg');
+b=rgb2gray(a);
+b=imresize(b,[256,256]);
+c=double(b);
+[m,n]=size(c);
+M=double(255);
+p=double(round(M/1.25));
+q=double(round(2*M/2));
+for i=1:m
+    for j=1:n
+        if c(i,j)>=p & c(i,j)<=q
+            D(i,j)=M;
+        else
+            D(i,j)=c(i,j);
+        end
+    end
+end
+subplot(2,2,1),imshow(uint8(c)),title('Org');
+subplot(2,2,2),imshow(uint8(D)),title('Vth BG');
+subplot(2,2,3),imshow(uint8(E)),title('Vth out BG');
