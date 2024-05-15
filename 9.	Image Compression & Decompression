@@ -1,0 +1,26 @@
+% Read the original image
+original_image = imread('img1.jpg');
+
+subplot(2,1,1);
+imshow(original_image);
+title('Original Image');
+
+% Display original image file size
+original_file_size = dir('img1.jpg').bytes;
+fprintf('Original image file size: %d bytes\n', original_file_size);
+
+% Perform Lossy Compression (JPEG)
+quality_factor = 80; % Adjust quality factor as needed (0-100)
+imwrite(original_image, 'compressed_image.jpg', 'Quality', quality_factor);
+
+% Read the compressed image
+compressed_image_jpeg = imread('compressed_image.jpg');
+
+
+subplot(2,1,2);
+imshow(compressed_image_jpeg);
+title('Compressed Image (JPEG)');
+
+% Display compressed image file size for JPEG
+compressed_file_size_jpeg = dir('compressed_image.jpg').bytes;
+fprintf('Compressed image file size (JPEG): %d bytes\n', compressed_file_size_jpeg);
