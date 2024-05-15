@@ -1,0 +1,22 @@
+% Read the image
+img = imread('img1.jpg'); 
+
+% Convert to grayscale image
+image = rgb2gray(img);
+
+% Convert the image to double for processing
+image_double = double(image);
+
+% Extract individual bit planes
+bit_planes = cell(8, 1);
+for i = 1:8
+    bit_planes{i} = bitget(image_double, i);
+end
+
+% Display each bit plane
+figure;
+for i = 1:8
+    subplot(2, 4, i);
+    imshow(bit_planes{i}, []);
+    title(['Bit Plane ', num2str(i-1)]);
+end
